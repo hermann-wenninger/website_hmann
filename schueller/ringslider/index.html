@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500");
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+        :root {
+  font-size: 16px;
+}
+
+section {
+  font-family: "Quicksand" sans-serif;
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-left: 60px;
+  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.grid figure {
+  margin: .1rem;
+  position: relative;
+}
+.grid figure figcaption {
+  background: #3a6fe1;
+  bottom: 0;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  -webkit-transition: max-height 0.3s ease-out;
+  overflow: hidden;
+  rotate: 270deg;
+  font-size: 1.3em;
+}
+.grid figure p {
+  margin-top: 0.5rem;
+}
+.grid img {
+  width: 300px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*@media screen and (min-width: 701px) {*/
+  figure {
+    width: 300px;
+  }
+  figure figcaption {
+    height: 50px;
+    font-size: 3em;
+    color:rgba(236, 241, 241, 0.531);
+   
+  }
+  figure:hover figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+    opacity: .7;
+    transition: height 0.5s ease-in;
+  }
+  figure:hover p {
+    opacity: 1;
+    transition: opacity 0.5s ease-in 0.6s;
+  }
+
+  p {
+    opacity: 0;
+  }
+  figcaption{
+    opacity: 0.0;
+
+  }
+  @media screen (min-width: 638px) {
+img figure{
+  width:38vw;
+}
+  }
+/*@media screen and (max-width: 700px) {
+  figure {
+    width: 100%;
+  }
+
+  p {
+    opacity: 1;
+  }
+
+  figcaption {
+    height: auto;
+    opacity: .0;
+    
+  }
+}*/
+figure {
+	-webkit-animation: grid 5.5s ;
+	        animation: grid 5.5s ;
+}
+@-webkit-keyframes grid {
+  0% {
+    -webkit-transform: scale(.950);
+            transform: scale(.950);
+    
+    margin:25px;
+   
+  
+  }
+ 
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    
+    margin:2px;
+    
+  }
+}
+@keyframes grid {
+  0% {
+    -webkit-transform: scale(.987);
+            transform: scale(.987);
+    
+    margin:12px;
+  }
+  97%{
+    margin:2px;
+  }
+  98%{
+    margin:3px;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    
+    margin:2px;
+    
+  }
+}
+
+    </style>
+      <style>
+        #nav.nav {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        height: 86px;
+        width: 100%;
+        background-color: #fff;
+        opacity: 0.7;
+        z-index: 9999;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: dimgray;
+        /*background-image: url(../assets/img/deko/gelberle.jpg);*/
+        
+    }
+    .sozial {
+        width: 1.4em;
+        margin: 0.5em;
+    }
+    a, a:visited, a:hover {
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+        font-family: monospace;
+    }
+    
+    .navlink {
+        margin: 1em;
+    }
+    input#hamburg {
+        display: none;
+    }
+    
+    #hamburg {
+        scale: 0.4;
+    }
+    label.hamburg {
+        display: block;
+        background: #ffffff00;
+        width: 75px;
+        height: 50px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 4px;
+        scale: 0.6;
+    }
+    .line:nth-child(1) {
+        top: 12px;
+    }
+    .line {
+        position: absolute;
+        left: 10px;
+        height: 4px;
+        width: 55px;
+        background: #2f2e2e;
+        border-radius: 2px;
+        display: block;
+        transition: 0.5s;
+        transform-origin: center;
+    }
+    .line:nth-child(2) {
+        top: 24px;
+    }
+    .line:nth-child(3) {
+        top: 36px;
+    }
+    .label {
+        scale: .9;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: #394a56;
+        display: flex;
+        flex-direction: row;
+    }
+    .toggle {
+        scale: 0.75;
+        position: absolute;
+        align-items: 20px;
+        nav-right: calc(100% - 20px);
+        align-self: flex-end;
+        margin-left: 5em;
+        isolation: isolate;
+        position: relative;
+        height: 30px;
+        width: 60px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: -8px -4px 8px 0px #535151, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #7c7a7a inset;
+    }
+    .toggle-state {
+        display: none;
+    }
+    .indicator {
+        height: 100%;
+        width: 200%;
+        background: #ecf0f3;
+        border-radius: 15px;
+        transform: translate3d(-75%, 0, 0);
+        transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    #hamburg:checked + .hamburg .line:nth-child(1){
+      transform: translateY(12px) rotate(-45deg);
+    }
+    
+    #hamburg:checked + .hamburg .line:nth-child(2){
+      opacity:0;
+    }
+    
+    #hamburg:checked + .hamburg .line:nth-child(3){
+      transform: translateY(-12px) rotate(45deg);
+    }
+    .navlog{
+        width: 250px;
+    }
+    a.navlink:hover {
+    color: black;
+}
+    .texto{
+      position:absolute;
+      top:120px;
+      left:100px;
+    }
+    nav#nav:hover {
+    box-shadow: 5px 6px #bcbebf39;
+}
+p.x {
+    rotate: 270deg;
+    margin-top: 50px;
+    margin-right: 50px;
+    position: relative;
+    top: 110px;
+    left: -90px;
+    font-family: inherit;
+    font-size: .8em;
+}
+figcapture:hover{
+  opacity: 1;
+    transition: opacity 0.5s ease-in 0.6s;
+}
+      </style>
+      <style>
+        * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+        .mySlides {display: none}
+        img {vertical-align: middle;}
+        
+        /* Slideshow container */
+        .slideshow-container {
+          max-width: 1000px;
+          position: relative;
+          margin: auto;
+        }
+        
+        /* Next & previous buttons */
+        .prev, .next {
+            display: flex;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            padding: initial;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: coral;
+            border-radius: 50%;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin:1em;
+            transition: margin .9s;
+        
+        }
+        
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+          background-color: coral;
+          border-radius: 50%;
+        
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+        
+        /* Caption text */
+        .text {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+        
+        /* Fading animation */
+        .fade {
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+          .prev, .next,.text {font-size: 11px;
+        margin:.9em;}
+        }
+        a.next.xc{
+            margin: 12em;
+            -webkit-transition: margin 1s linear;
+            -khtml-transition: margin 1s linear;
+            -moz-transition: margin 1s linear;
+            -ms-transition: margin 1s linear;
+            transition: margin 12s linear;
+        }
+        a.prev.xc {
+            margin: 12em;
+            -webkit-transition: margin 1s linear;
+            -khtml-transition: margin 1s linear;
+            -moz-transition: margin 1s linear;
+            -ms-transition: margin 1s linear;
+            transition: margin 12s linear;
+        }
+        .img-magnifier-container {
+  position: relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+        </style>
+       
+</head>
+<body>
+  <nav id="nav" class="nav">
+   
+    <img class='navlog' src="././material/sdkomp1.svg" alt="">
+    <img class="sozial" src="../aaa_slider/assets/img/facebook.png" alt="" />
+    <img class="sozial" src="../aaa_slider/assets/img/instagram.png" alt="" />
+    
+    
+    <a class="navlink" href="../card/card.html">Kollektions</a>
+    <a class="navlink" href="">Aktuell</a>
+    <a class="navlink" href="../kontaktform/kontaktform.html">Kontakt</a>
+    <a class="navlink" href="../bbb_grid/foliodot.html">Werkstatt</a>
+    <a class="navlink" href="">Wissenswertes</a>
+    <a class="navlink" href="../adressen/adressen.html">Händler</a>
+
+    <div class="row">
+      <input type="checkbox" id="hamburg" />
+      <label for="hamburg" class="hamburg">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </label>
+    </div>
+    <label class="label">
+      <div class="toggle">
+        <input class="toggle-state" type="checkbox" name="check" value="check" />
+        <div class="indicator"></div>
+      </div>
+      <div class="label-text">de</div>
+    </label>
+  </nav>
+  <div class="slideshow-container" style="margin-top:2em">
+
+    <div class="mySlides fade">
+      <div class="numbertext img-magnifier-container">1 / 3</div>
+      <img src="../assets/img/unendlich-4-gewellt-eheringe-gepraegte-schrift.png" style="width:100%">
+      <div class="text">Caption Text</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="../assets/img/unendlich-4-weissgold-designer-eheringe.png" style="width:100%">
+      <div class="text">Caption Two</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="../assets/img/unendlich-6-trauringe-eheringe-ausgefallen-geteilte-schrift-schueller-design.png" style="width:100%">
+      <div class="text">Caption Three</div>
+    </div>
+    
+    <a class="prev xc" onclick="plusSlides(-1)">❮</a>
+    <a class="next xc" onclick="plusSlides(1)">❯</a>
+    
+    </div>
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+    
+    <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+   <!-- <script src="script.js"></script>->
+</body>
+</html>

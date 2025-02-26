@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: .1875rem;
+  background-color: rgb(243, 249, 250);
+  font-family: 'Roboto', sans-serif;
+}
+
+section.xyz {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-auto-rows: 350px;
+  grid-gap: .0175rem;
+  margin: 0 auto;
+  max-width: 2000px;
+}
+
+figure.xyz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.225rem;
+  transform: translateY(0);
+  box-shadow: rgba(0, 0, 0, 0.5) 0 12px 24px -12px;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+figure.xyz:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(220, 20, 60, 0.8);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+figure.xyz:nth-child(2), figure:nth-child(4), figure:nth-child(7) {
+  grid-row: span 2;
+}
+
+img.xyz {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translateZ(0);
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+figcaption.xyz {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem 2.25rem 1.5rem 1.125rem;
+  width: 100%;
+  color: white;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: 0.03125rem;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+figure.xyz:hover {
+  transform: translateY(-6px);
+  box-shadow: rgba(0, 0, 0, 0.2) 12px 22px 14px 12px;
+}
+figure.xyz:hover:after {
+  opacity: 1;
+}
+figure.xyz:hover img {
+  transform: scale(1.05);
+}
+figure.xyz:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+figure.xyz {
+    display: block;
+    margin-block-start: .2em;
+    margin-block-end: .2em;
+    margin-inline-start: 9px;
+    margin-inline-end: 9px;
+}
+    </style>
+</head>
+<body>
+    <section class="xyz">
+        <figure class="xyz"><img src="https://images.unsplash.com/photo-1523978591478-c753949ff840?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=4a7ae67e32aeafa8fcef6002dc98dc01" alt="Mountains surrounding a body of water"/>
+          <figcaption class="xyz">Aktuelles</figcaption>
+        </figure>
+        <figure class="xyz"><a href="../ringslider/index.html"><img class="xyz" src="https://images.unsplash.com/photo-1504217051514-96afa06398be?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=4c2699a4a22cc550d845fdbc25b676d7" alt="Sun setting over the mountains"/></a>
+          <figcaption class="xyz">Kollektionen</figcaption>
+        </figure>
+        <figure class="xyz"><img class="xyz" src="https://images.unsplash.com/photo-1430778643786-afad072a0bb1?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=a2f7f06ab7480af81b66d854ec7cfb90" alt="Countryside with tire tracks in grass"/>
+          <figcaption class="xyz">New Model</figcaption>
+        </figure>
+        <figure class="xyz"><img class="xyz" src="https://images.unsplash.com/photo-1448827067615-fa74e848e86c?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=882a9906c73a6e21b7614adfa0080c11" alt="A terrifying close-up of an insect"/>
+          <figcaption class="xyz">Kontakt</figcaption>
+        </figure>
+        <figure class="xyz"><img class="xyz" src="https://images.unsplash.com/photo-1510020553968-30f966e1ec9e?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=b06f39fc12490ec16b4603f87413a9d8" alt="Dog looking out car window"/>
+          <figcaption class="xyz">Atelier</figcaption>
+        </figure>
+        <figure class="xyz"><img class="xyz" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=b5d101f72e23afc7e5d667ad09d555ad" alt="Person on mountaintop"/>
+          <figcaption class="xyz">Lost in Translation</figcaption>
+        </figure>
+        <figure class="xyz"><img class="xyz" src="https://images.unsplash.com/photo-1520247478381-4d32def223c1?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=8b4f951c5fb787428647e61369f23aa3" alt="Birds eye view of ocean waves"/>
+          <figcaption>Händler</figcaption>
+        </figure>
+        <figure class="xyz"><img class="xyz" src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=8f37819758fae3fecda8434f24eaaea0" alt="A cute golden retriever puppy"/>
+          <figcaption class="xyz">Händler Login</figcaption>
+        </figure>
+        <figure class="xyz"><img class="xyz" src="https://images.unsplash.com/photo-1450045439515-ff27c2f2e6b1?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=97a25f2cb9d2cc37987223a2ca31ad3c" alt="Whale fin emerging from ocean"/>
+          <figcaption class="xyz">Wissenswertes</figcaption>
+        </figure>
+      </section>  
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <style>
+        html body {
+  position: relative;
+  background: #ece9e6 /* fallback for old browsers */;
+  background: -webkit-linear-gradient(to right, #fff, #ece9e6) /* Chrome 10-25, Safari 5.1-6 */;
+  background: linear-gradient(to right, #fff, #ece9e6) /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+  font-family: monospace;
+  font-weight: 100;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html body .header {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #002b75;
+}
+html body .menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html body .menu .menu-item {
+  position: relative;
+  cursor: pointer;
+}
+html body .menu .menu-item .wee {
+  height: 2px;
+  width: 100%;
+  background-color: #750008;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.75s;
+}
+html body .menu .menu-item h6 {
+  margin: 0;
+  padding: 0 1rem 1.5rem;
+  font-size: 1rem;
+  color: #232323;
+  transition: 0.75s;
+}
+html body .menu .menu-item:hover h6 {
+  color: #002b75;
+}
+html body .menu .current-menu-item h6 {
+  color: #002b75;
+}
+.me {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.me a {
+  display: inline-block;
+  padding: 0.25rem;
+  margin: 0 0.25rem;
+  color: #232323;
+  font-size: 1.5rem;
+  transition: 0.75s;
+}
+.me a:hover {
+  color: #002b75;
+}
+
+    </style>
+</head>
+
+<body>
+  
+    <div class="menu">
+        <div class="menu-item current-menu-item">
+            <h6>Home</h6>
+            <div class="wee"></div>
+        </div>
+        <div class="menu-item">
+            <h6>Kollektion</h6>
+        </div>
+        <div class="menu-item">
+            <h6>Aktuelles</h6>
+        </div>
+        <div class="menu-item">
+            <h6>Atelier</h6>
+        </div>
+        <div class="menu-item">
+            <h6>Wissenswertes</h6>
+        </div>
+    </div>
+    <script>
+       $(document).ready(function() {
+  // cool nav menu
+  $(window).on('load resize', function() {
+    var $thisnav = $('.current-menu-item').offset().left;
+
+    $('.menu-item').hover(function() {
+      var $left = $(this).offset().left - $thisnav;
+      var $width = $(this).outerWidth();
+      var $start = 0;
+      $('.wee').css({ 'left': $left , 'width': $width });
+    }, function() {
+      var $initwidth = $('.current-menu-item').width();
+      $('.wee').css({ 'left': '0' , 'width': $initwidth });
+    });
+  });
+
+}); 
+    </script>
+</body>
+
+</html>
+
+<div class="me"><a href="https://github.com/cmdeveloped" target="_blank"><i class="fab fa-github"></i></a><a
+    href="https://twitter.com/collinscode_" target="_blank"><i class="fab fa-twitter"></i></a><a
+    href="https://codepen.io/collinscode" target="_blank"><i class="fab fa-codepen"></i></a><a
+    href="https://linkedin.com/in/cmdeveloped" target="_blank"><i class="fab fa-linkedin-in"></i></a></div>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+      <style>
+        body {
+    font-family: monospace;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+        #nav.nav {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        height: 86px;
+        width: 100%;
+        background-color: #fff;
+        opacity: 0.7;
+        z-index: 9999;
+        flex-direction: row;
+        
+        justify-content: center;
+        align-items: center;
+        color: dimgray;
+        /*background-image: url(../assets/img/deko/gelberle.jpg);*/
+        
+    }
+    .sozial {
+        width: 1.4em;
+        margin: 0.5em;
+    }
+    a, a:visited, a:hover {
+        color: white;
+        text-decoration: none;
+        outline: none;
+        font-family: monospace;
+    }
+    
+    .navlink {
+        margin: .5em;
+    }
+    input#hamburg {
+        display: none;
+    }
+    
+    #hamburg {
+        scale: 0.4;
+    }
+    label.hamburg {
+        display: block;
+        background: #ffffff00;
+        width: 75px;
+        height: 50px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 4px;
+        scale: 0.6;
+    }
+    .line:nth-child(1) {
+        top: 12px;
+    }
+    .line {
+        position: absolute;
+        left: 10px;
+        height: 4px;
+        width: 55px;
+        background: #2f2e2e;
+        border-radius: 2px;
+        display: block;
+        transition: 0.5s;
+        transform-origin: center;
+    }
+    .line:nth-child(2) {
+        top: 24px;
+    }
+    .line:nth-child(3) {
+        top: 36px;
+    }
+    .label {
+        scale: .9;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: #394a56;
+        display: flex;
+        flex-direction: row;
+    }
+    .toggle {
+        scale: 0.75;
+        position: absolute;
+        align-items: 20px;
+        nav-right: calc(100% - 20px);
+        align-self: flex-end;
+        margin-left: 1em;
+        isolation: isolate;
+        position: relative;
+        height: 30px;
+        width: 60px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: -8px -4px 8px 0px #535151, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #7c7a7a inset;
+    }
+    .toggle-state {
+        display: none;
+    }
+    .indicator {
+        height: 100%;
+        width: 200%;
+        background: #ecf0f3;
+        border-radius: 15px;
+        transform: translate3d(-75%, 0, 0);
+        transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+    }
+    img {
+        max-width: 50%;
+        height: auto;
+    }
+    #hamburg:checked + .hamburg .line:nth-child(1){
+      transform: translateY(12px) rotate(-45deg);
+    }
+    
+    #hamburg:checked + .hamburg .line:nth-child(2){
+      opacity:0;
+    }
+    
+    #hamburg:checked + .hamburg .line:nth-child(3){
+      transform: translateY(-12px) rotate(45deg);
+    }
+    .navlog{
+        width: 250px;
+        margin-left: 1em;
+    }
+    a.navlink:hover {
+    color: black;
+}
+    .texto{
+      position:absolute;
+      top:120px;
+      left:100px;
+    }
+    nav#nav:hover {
+    box-shadow: 5px 6px #bcbebf39;
+}
+p.x {
+    rotate: 270deg;
+    margin-top: 50px;
+    margin-right: 50px;
+    position: relative;
+    top: 110px;
+    left: -90px;
+    font-family: inherit;
+    font-size: .8em;
+}
+figcapture:hover{
+  opacity: 1;
+    transition: opacity 0.5s ease-in 0.6s;
+}
+a.navlink {
+    color: rgb(41, 39, 52);
+}
+      </style>
+      <style>
+      /* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  margin-top: 120px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  
+  
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: 20px;
+    height: 20px;
+    padding: 16px;
+    margin-top: -50px;
+    color: rgb(243, 81, 12);
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.prev{
+  margin-left: 300px;
+  transition: all 1sec;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  margin-right: 300px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(234, 58, 14, 0.8);
+  border-radius: 50%;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #ececf0;;
+  padding: 2px 16px;
+  color: white;
+  font-family: monospace;
+  color: darkgrey;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+.center{
+  display: flex;
+  flex-direction: column;
+
+}
+img.center{
+  overflow-clip-margin:inherit;
+}
+.rowx {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+}
+.beschreib{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+  div.caption-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+.glyphicon {
+    color: orangered;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: .23em;
+}
+button.butt {
+    display: flex;
+    width: auto;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 25px;
+    margin-left: 2em;
+    position: absolute;
+    right:180px;
+    align-items: center;
+    height: 35px;
+    opacity: .7;
+    
+}
+button.butt:hover{
+  opacity: 1.0;
+}
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
+  src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.text {
+    max-width: 550px;
+}
+.wrapper{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+        </style>
+        
+  
+</head>
+<body>
+  <nav id="nav" class="nav">
+   
+    <img class='navlog' src="../material/sdkomp3.svg" alt="">
+    <img class="sozial" src="../aaa_slider/assets/img/facebook.png" alt="" />
+    <img class="sozial" src="../aaa_slider/assets/img/instagram.png" alt="" />
+    
+    
+    <a class="navlink" href="../card/card.html">Kollektions</a>
+    <a class="navlink" href="">Aktuell</a>
+    <a class="navlink" href="../kontaktform/kontaktform.html">Kontakt</a>
+    <a class="navlink" href="../bbb_grid/foliodot.html">Werkstatt</a>
+    <a class="navlink" href="">Wissenswertes</a>
+    <a class="navlink" href="../adressen/adressen.html">Händler</a>
+
+    <div class="row">
+      <input type="checkbox" id="hamburg" />
+      <label for="hamburg" class="hamburg">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </label>
+    </div>
+    <label class="label">
+      <div class="toggle">
+        <input class="toggle-state" type="checkbox" name="check" value="check" />
+        <div class="indicator"></div>
+      </div>
+      <div class="label-text">de</div>
+    </label>
+  </nav>
+ <!-- Container for the image gallery -->
+<div class="container">
+
+  <!-- Full-width images with number text -->
+  <div class="" style="display: flex;justify-content: center;">
+   <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+      <img src="../assets/img/marvel/marvel-65-gold-1-trauringe-anders-schueller-design.png" style="width:100%">
+  </div>
+ </div>
+ <div class="" style="display: flex;justify-content: center;">
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+      <img src="../assets/img/marvel/marvel-7-gerundet-eheringe-tresor-schueller-design-au-5.png" style="width:100%">
+  </div>
+</div>
+<div class="" style="display: flex;justify-content: center;">
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+      <img src="../assets/img/marvel/marvel-7-gerundet-trauringe-tresor-schueller-design-1.png" style="width:100%">
+  </div>
+</div>
+<div class="" style="display: flex;justify-content: center;">
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+      <img src="../assets/img/marvel/marvel-7ed-gold-5-trauring-schueller-design-innenliegendes-band.png" style="width:100%">
+  </div>
+</div>
+<div class="" style="display: flex;justify-content: center;">
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+      <img src="../assets/img/marvel/marvel-8ed-gold-5-designer-ring-ehering-tresor.png" style="width:100%">
+  </div>
+  </div>
+</div>
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <!-- Image text -->
+  <div class="caption-container">
+    <p id="caption">></p><button class="butt"> <span class="glyphicon">&#xe085;</span>any question ... kontakt me</button>
+  </div>
+
+  <!-- Thumbnail images -->
+  <div class="rowx">
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="../assets/img/marvel/marvel-65-gold-1-trauringe-anders-schueller-design.png" style="width:100px" onclick="currentSlide(1)" alt="marvel number one">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../assets/img/marvel/marvel-7-gerundet-eheringe-tresor-schueller-design-au-5.png" style="width:100px" onclick="currentSlide(2)" alt="marvel tresor">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../assets/img/marvel/marvel-7-gerundet-trauringe-tresor-schueller-design-1.png" style="width:100px" onclick="currentSlide(3)" alt="marvel mountains">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../assets/img/marvel/marvel-7ed-gold-5-trauring-schueller-design-innenliegendes-band.png" style="width:px" onclick="currentSlide(4)" alt="marvel number5">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../assets/img/marvel/marvel-8ed-gold-3-ehering-ausgefallen-schueller-design-30xjw1lfilipa0cymmq32i.png" style="width:100px" onclick="currentSlide(5)" alt="marvel goldfeller">
+    </div>
+  
+  </div>
+</div>
+</div>
+<div class="wrapper">
+<div class="beschreib">
+<div class="text">
+ <h1>Marvel</h1> 
+<h2>Tresor- Eheringe mit Ihrer Gravur verborgen im Ring</h2>
+<p>Dieser Ring gehört zu den Lieblingsstücken der Designerin Claudia Schüller.
+</p>
+<div class="ltxt">Wie ein Zauber wirkt die Liebesbotschaft.
+  Wie eine geheime Formel wird sie beschützt.
+  Im Inneren liegt sie verschlossen.
+  Den Liebenden ist sie gewiss!</div>   
+
+<h2>Ring Variationen</h2>
+<div class="ltxt">
+  Erhältlich in Edelstahl oder Gelbgold*, Weißgold*, Roségold*, Rotgold*, Platin und Palladium, in Kombination mit Edelstahl.(*14 und 18 Karat)
+Wählen Sie schöne Farbkombinationen von z. B. warmen Aprikotgold (Roségold) und edlem Platin.
+Diese Designer-Ringe sind in verschiedenen Breiten erhältlich.
+</div>
+
+Sie haben Fragen zur Kollektion Marvel?
+</div>
+</div>
+</div>
+    <script src="script1.js"></script>
+</body>
+</html>

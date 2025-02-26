@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372.54 82.8">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d1d1cd;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: Advantage, Advantage;
+      }
+
+      .cls-2 {
+        fill: #382202;
+      }
+
+      .cls-3 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        font-size: 47.5px;
+      }
+
+      .cls-6 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-6, .cls-7 {
+        font-size: 19px;
+      }
+
+      .cls-5 {
+        letter-spacing: -.03em;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(4.57 53.11)"><tspan class="cls-4" x="0" y="0">Claudia </tspan><tspan class="cls-5" x="156.69" y="0">S</tspan><tspan class="cls-4" x="190.08" y="0">chüll</tspan><tspan class="cls-3" x="244.99" y="0">e</tspan><tspan class="cls-4" x="274.2" y="0">r </tspan><tspan class="cls-6" x="313.86" y="0">D</tspan><tspan class="cls-7" x="333.37" y="0">esign</tspan></text>
+  <text class="cls-2" transform="translate(2.2 47.57)"><tspan class="cls-4" x="0" y="0">Claudia </tspan><tspan class="cls-5" x="156.69" y="0">S</tspan><tspan class="cls-4" x="190.08" y="0">chüll</tspan><tspan class="cls-3" x="244.99" y="0">e</tspan><tspan class="cls-4" x="274.2" y="0">r </tspan><tspan class="cls-6" x="313.86" y="0">D</tspan><tspan class="cls-7" x="333.37" y="0">esign</tspan></text>
+</svg>

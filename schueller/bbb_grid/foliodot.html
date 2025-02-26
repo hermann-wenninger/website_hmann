@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<title>1910s — photo essay example with Foliodot</title>
+<meta name="description" content="Showcase your own universe. Your passion. Your thoughts. Your take on the world. Your own voice through the photographs. Tell the story.">
+<meta property='og:image' content='https://foliodot.com/assets/img/1910/1910-cover.jpg'>
+<meta property='fb:app_id' content='576231099225603'>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@foliodot">
+<meta name="twitter:title" content="1910 — Photo essay">
+<meta name="twitter:description" content="Your take on the world. Your own voice through your photographs. Tell the story.">
+
+<link rel="stylesheet" id="folio-css" href="../assets/css/folio.min.css">
+
+<style>
+    .-text-bold {
+    font-weight: 500;
+}
+    .-text-heading, .-text-title {
+    font-family: monospace;
+    font-size: 48px;
+    line-height: 1.125;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+    .page-skin-dark {
+        background-color: #111111;
+    }
+    .lg- .thumb-skin-dark .thumb-content {
+        background-color: #111111;
+        color: #f5f5f5;
+        border-radius: 0.25rem;
+    }
+    .lg- .thumb-content {
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .lg- .thumb.photo .thumb-content:hover {
+        -webkit-transform: scale(1.02);
+                transform: scale(1.02);
+    }
+    .page a[target="_blank"] { border-bottom: solid 1px; }
+    .page a[target="_blank"]:hover { border-bottom: 0; }
+    .ui-enumeration {display: block; bottom: 0.75rem;}
+    .nav#nav{
+        position: fixed;
+        top:0;
+        left:0;
+    }
+    #container.container{
+  display: flex;
+  position: relative;
+  width: 50%;
+  min-height: 137px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin-top: 3em;
+  margin-left: 1em;
+}
+#allin.allin{
+  height: 1000px;
+}
+.logox{
+  position: absolute;
+  display: block;
+  top:63%;
+  left:63%;
+  width: 30%;
+  z-index: 9999;
+}
+#nav.nav {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 86px;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.7;
+  z-index: 9999;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:dimgray;
+  
+}
+#nav.nav:hover {
+  box-shadow: 0 15px 15px rgba(0,0,0,0.3);
+}
+</style>
+<style>
+    #nav.nav {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 86px;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.7;
+    z-index: 9999;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: dimgray;
+    /*background-image: url(../assets/img/deko/gelberle.jpg);*/
+    
+    
+}
+.sozial {
+    width: 1.4em;
+    margin: 0.5em;
+}
+a, a:visited, a:hover {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    font-family: monospace;
+}
+
+.navlink {
+    margin: 1em;
+}
+input#hamburg {
+    display: none;
+}
+
+#hamburg {
+    scale: 0.4;
+}
+label.hamburg {
+    display: block;
+    background: #ffffff00;
+    width: 75px;
+    height: 50px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    scale: 0.6;
+}
+.line:nth-child(1) {
+    top: 12px;
+}
+.line {
+    position: absolute;
+    left: 10px;
+    height: 4px;
+    width: 55px;
+    background: #2f2e2e;
+    border-radius: 2px;
+    display: block;
+    transition: 0.5s;
+    transform-origin: center;
+}
+.line:nth-child(2) {
+    top: 24px;
+}
+.line:nth-child(3) {
+    top: 36px;
+}
+.label {
+    scale: .9;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: #394a56;
+    display: flex;
+    flex-direction: row;
+}
+.toggle {
+    scale: 0.75;
+    position: absolute;
+    align-items: 20px;
+    nav-right: calc(100% - 20px);
+    align-self: flex-end;
+    margin-left: 5em;
+    isolation: isolate;
+    position: relative;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: -8px -4px 8px 0px #535151, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #7c7a7a inset;
+}
+.toggle-state {
+    display: none;
+}
+.indicator {
+    height: 100%;
+    width: 200%;
+    background: #ecf0f3;
+    border-radius: 15px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+#hamburg:checked + .hamburg .line:nth-child(1){
+  transform: translateY(12px) rotate(-45deg);
+}
+
+#hamburg:checked + .hamburg .line:nth-child(2){
+  opacity:0;
+}
+
+#hamburg:checked + .hamburg .line:nth-child(3){
+  transform: translateY(-12px) rotate(45deg);
+}
+.navlog{
+    width: 250px;
+}
+a.navlink:hover {
+color: black;
+}
+.texto{
+  position:absolute;
+  top:120px;
+  left:100px;
+}
+nav#nav:hover {
+box-shadow: 5px 6px #bcbebf39;
+}
+p.x {
+rotate: 270deg;
+margin-top: 50px;
+margin-right: 50px;
+position: relative;
+top: 110px;
+left: -90px;
+font-family: inherit;
+font-size: .8em;
+}
+figcapture:hover{
+opacity: 1;
+transition: opacity 0.5s ease-in 0.6s;
+}
+.toggle-state:checked ~ .indicator {
+transform: translate3d(25%, 0, 0);
+}
+.ui.ui-button.ui-button-views {
+    z-index: 9999 !important;
+}
+.ui.ui-button.ui-button-section {
+    z-index: 9999 !important;
+}
+.ui.ui-button.ui-button-views {
+    z-index: 9999 !important;
+    position: fixed;
+    bottom: 40px;
+    left: 50px;
+}
+.ui.ui-button.ui-button-section {
+    z-index: 9999 !important;
+    position: fixed;
+    bottom: 40px;
+    left: 90px;
+}
+  </style>
+ 
+<body>
+    <nav id="nav" class="nav">
+      
+       <img class='navlog' src="../material/sdkomp3.svg" alt="">
+        <img class="sozial" src="../aaa_slider/assets/img/facebook.png" alt="" />
+        <img class="sozial" src="../aaa_slider/assets/img/instagram.png" alt="" />
+    
+    
+        <a class="navlink" href="../card2/card2.html">Kollektions</a>
+        <a class="navlink" href="../aktuelles/index.html">Aktuell</a>
+        <a class="navlink" href="../kontaktform/kontaktform.html">Kontakt</a>
+        <a class="navlink" href="../bbb_grid/foliodot.html">Werkstatt</a>
+        <a class="navlink" href="../aktuelles/index.html">Wissenswertes</a>
+        <a class="navlink" href="../adressen/adressen.html">Händler</a>
+    
+        <div class="row">
+          <input type="checkbox" id="hamburg" />
+          <label for="hamburg" class="hamburg">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </label>
+        </div>
+        <label class="label">
+          <div class="toggle">
+            <input class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="indicator"></div>
+          </div>
+          <div class="label-text">de</div>
+        </label>
+      </nav>
+<main>
+
+    <article self="size-1of1" >
+        <div self="size-medium left" class="-p-6 -md-p-4 -text-large -md-text-medium -text-bold -bg-white -ml-6 -lg-ml-0" >
+            <h1 class="-text-title ">schüller design</h1>
+            <p>
+                Ringe – individuell, modern, zeitlos und dazu nachhaltig und ressourcenschonend *
+Verliebt – verlobt – verheiratet. Anlässe, die Verbundenheit ausdrücken und manifestieren möchten gibt es heute wie damals. Der Ring hat dabei seine Symbolkraft nie verloren. Er spielt auch heute die Hauptrolle beim feierlichen Ritual. Althergebrachte Normen haben sich jedoch überholt. Individualität und persönlicher Ausdruck sind anstelle dessen als moderne Selbstzeugnisse in den Blickpunkt getreten.
+                <a href="#/about-images">Bain News Service</a> from the 1900s to the mid-1920s.”
+            </p>
+            <a href="#/2">Das Atelier</a>
+        </div>
+    </article>
+
+    
+    
+    <img src="./assets/img/5curves.jpg" fit="cover right" transition="left-scale" />
+    <img src="./assets/img/a.webp"/>
+    <img src="./assets/img/blatt_art.jpg" skin="dark"/>
+    <img src="./assets/img/good.jpg"/>
+    <img src="./assets/img/produktion.jpg"/>
+
+    <figure>
+        <img src="./assets/img/b.webp"/>
+        <img src="./assets/img/blatt_art.jpg"/>
+    </figure>
+
+    <img src="./assets/img/c.webp"/>
+    <img src="./assets/img/d.webp" skin="dark"/>
+    <img src="./assets/img/e.webp"/>
+    <img src="./assets/img/morgenrot.jpg"/>
+    <img src="./assets/img/nessing.jpg"/>
+
+    <figure>
+        <img src="./assets/img/pinch.jpg"/>
+        <img src="./assets/img/produktion.jpg"/>
+    </figure>
+
+    <img src="./assets/img/remx_ring.jpg"/>
+    <img src="./assets/img/ringeinfach.jpg" skin="dark"/>
+    <img src="./assets/img/schmuckfrau.jpg"/>
+    <img src="./assets/img/waterhand.jpg"/>
+
+    <img src="./assets/img/werkstatt1.jpg"/>
+    <img src="./assets/img/werkstatt2.jpg"/>
+
+    <img src="./assets/img/werkstatt3.jpg" skin="dark" />
+    <img src="./assets/img/werkstatt4.jpg"/>
+    <img src="./assets/img/index.jpg"/>
+    <img src="./assets/img/blatt_art.jpg"/>
+    <img src="./assets/img/c.webp"/>
+    <img src="./assets/img/good.jpg"/>
+    <img src="./assets/img/goldhand.jpg"/>
+    <img src="./assets/img/nessing.jpg" skin="dark"/>
+    <img src="./assets/img/pinch.jpg" skin="dark" fit="cover"/>
+
+    <article hash="about-images" transition="scale-left">
+        <h3>About images</h3>
+        <p>
+            schüller design:
+        </p>
+        <p>
+            More info: <br/>
+            
+        </p>
+        <p>
+            Credit: <br/>
+            
+        </p>
+        <p>
+            Source: <br/>
+            
+        </p>
+        <p>
+            Edit: <br/>
+            schueller-design.de
+        </p>
+    </article>
+
+    
+    <article self="size-xlarge" transition="fold-left" hash="next">
+        <div layout="row top-stretch spacing-5" >
+            <article class="-cph-3">
+                <h3 class="-mb-3 -color-red">More examples</h3>
+                <a href="/examples/portraits" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Portraits</h5>
+                  
+                </a>
+                <a href="/examples/1910" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Photo essay</h5>
+                    <p></p>
+                </a>
+                <a href="/examples/narrative" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Creative layout</h5>
+                    <p></p>
+                </a>
+                <a href="/examples/standard" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Standard photobook</h5>
+                    <p></p>
+                </a>
+                <a href="/examples/basic" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Basic slideshow</h5>
+                    <p></p>
+                </a>
+            </article>
+            <article class="-cph-3">
+                <h3 class="-mb-3 -color-red">More guides</h3>
+                <a href="/examples/layout/photo" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Single photo layout</h5>
+                    <p></p>
+                </a>
+                <a href="/examples/layout/diptych" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Diptych layout</h5>
+                    <p></p>
+                </a>
+                <a href="/examples/transitions" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Transitions</h5>
+                    <p></p>
+                </a>
+                <a href="/examples/thumbnails" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Thumbnails</h5>
+                    <p></p>
+                </a>
+                <a href="/examples/sidebar" class="-border-none -hover-bg-grey200 -cmv-2 -pv-2">
+                    <h5>Sidebar</h5>
+                    <p></p>
+                </a>
+            </article>
+        </div>
+    </article>
+</main>
+
+
+
+<script src="../assets/js/folio.min.js"></script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-55129573-1', 'auto');
+    ga('send', 'pageview');
+    ga('require', 'linker');
+    ga('linker:autoLink', ['fastspring.com']);
+</script>
+        
+<script>
+    FOLIO.init( {
+        project : {
+            pagination : false,
+            views : 'normal contain'
+        },
+        thumbnails : {
+            size : '270x180',
+            fit : 'contain'
+
+        },
+        content : {
+            inactivity : true,
+            transition : 'scale-up',
+            ui: 'icon'
+        }
+    } );
+</script>
+
+
+

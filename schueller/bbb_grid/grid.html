@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .angry-grid {
+           display: grid; 
+        
+           grid-template-rows: 1fr 1fr 1fr;
+           grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+           
+           gap: 0px;
+           height: 100%;
+           
+        }
+          
+        #item-0 {
+        
+           background-color: #8FFFF9; 
+           grid-row-start: 1;
+           grid-column-start: 1;
+        
+           grid-row-end: 2;
+           grid-column-end: 4;
+           
+        }
+        #item-1 {
+        
+           background-color: #CA7D97; 
+           grid-row-start: 1;
+           grid-column-start: 4;
+        
+           grid-row-end: 2;
+           grid-column-end: 6;
+           
+        }
+        #item-2 {
+        
+           background-color: #776ADD; 
+           grid-row-start: 2;
+           grid-column-start: 2;
+        
+           grid-row-end: 3;
+           grid-column-end: 5;
+           
+        }
+        #item-3 {
+        
+           background-color: #8D9785; 
+           grid-row-start: 3;
+           grid-column-start: 1;
+        
+           grid-row-end: 4;
+           grid-column-end: 3;
+           
+        }
+        #item-4 {
+        
+           background-color: #BC7B79; 
+           grid-row-start: 2;
+           grid-column-start: 5;
+        
+           grid-row-end: 4;
+           grid-column-end: 6;
+           
+        }
+        #item-5 {
+        
+           background-color: #96A976; 
+           grid-row-start: 3;
+           grid-column-start: 3;
+        
+           grid-row-end: 4;
+           grid-column-end: 5;
+           
+        }
+        </style>
+        
+        <div class="angry-grid">
+          <div id="item-0"><img style="width: 100%;" src="./assets/img/a.webp" alt=""></div>
+          <div id="item-1"><img style="width: 100%;" src="./assets/img/5curves.jpg" alt=""></div>
+          <div id="item-2"><img style="width: 100%;" src="./assets/img/good.jpg" alt=""></div>
+          <div id="item-3"><img style="width: 100%;" src="./assets/img/goldhand.jpg" alt=""></div>
+          <div id="item-4"><img style="width: 100%;" src="./assets/img/remx_ring.jpg" alt="">;</div>
+          <div id="item-5"><img style="width: 100%;" src="./assets/img/findlove.jpg" alt="">;</div>
+        </div>  
+</body>
+</html>

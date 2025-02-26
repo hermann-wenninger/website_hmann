@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    .wrapper {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+}
+.outerrim{
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  font-family:monospace;
+}
+.horline{
+  background-color:black;
+  height: 150px;
+  width: 2px;
+
+}
+.line{
+  border-right:1px solid gray;
+  height:100px;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 2em;
+}
+   </style>
+</head>
+<body>
+  <div class="outerrim">
+  <div class="wrapper">
+    <div class="line flex">
+      impressum<br>
+      dsgv
+
+    </div>
+    
+    <div class="line flex">agb</div>
+   
+    <div class="line flex">kontakt</div>
+    
+    <div class="line flex">webagentur</div>
+    
+    <div class="flex">sitelinks</div>
+  </div>
+</div>
+</body>
+</html>

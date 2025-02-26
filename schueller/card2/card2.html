@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500");
+body {
+  background-color: aliceblue;
+  font-family: monospace;
+}
+
+        :root {
+  font-size: 16px;
+}
+
+section {
+  font-family: monospace;
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-left: 60px;
+  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.grid figure {
+  margin: .1rem;
+  position: relative;
+}
+.grid figure figcaption {
+  background: #3a6fe1;
+  bottom: 0;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  -webkit-transition: all 0.2s cubic-bezier(1, 0.24, 0, 0.76);
+  overflow: hidden;
+  rotate: 270deg;
+  font-size: 1.3em;
+}
+.grid figure p {
+  margin-top: 0.5rem;
+}
+.grid img {
+  width: 300px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*@media screen and (min-width: 701px) {*/
+  figure {
+    width: 300px;
+  }
+  figure figcaption {
+    height: 50px;
+    font-size: 3em;
+    color:rgba(236, 241, 241, 0.531);
+   
+  }
+  figure:hover figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+    opacity: .7;
+    transition: height 0.5s ease-in;
+  }
+  figure:hover p {
+    opacity: 1;
+    transition: opacity 0.5s ease-in 0.6s;
+  }
+
+  p {
+    opacity: 0;
+  }
+  figcaption{
+    opacity: 0.0;
+
+  }
+  @media screen (min-width: 638px) {
+img figure{
+  width:38vw;
+}
+  }
+/*@media screen and (max-width: 700px) {
+  figure {
+    width: 100%;
+  }
+
+  p {
+    opacity: 1;
+  }
+
+  figcaption {
+    height: auto;
+    opacity: .0;
+    
+  }
+}*/
+figure {
+	-webkit-animation: grid 1.5s ;
+	        animation: grid 1.5s ;
+}
+@-webkit-keyframes grid {
+  0% {
+    -webkit-transform: scale(.950);
+            transform: scale(.950);
+    
+    margin:25px;
+   
+  
+  }
+ 
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    
+    margin:2px;
+    
+  }
+}
+@keyframes grid {
+  0% {
+    -webkit-transform: scale(.987);
+            transform: scale(.987);
+    
+    margin:12px;
+  }
+  97%{
+    margin:2px;
+  }
+  98%{
+    margin:3px;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    
+    margin:2px;
+    
+  }
+}
+
+    </style>
+      <style>
+        #nav.nav {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        height: 86px;
+        width: 100%;
+        background-color: #fff;
+        opacity: 0.7;
+        z-index: 9999;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: dimgray;
+        /*background-image: url(../assets/img/deko/gelberle.jpg);*/
+        
+    }
+    .sozial {
+        width: 1.4em;
+        margin: 0.5em;
+    }
+    a, a:visited, a:hover {
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+        font-family: monospace;
+    }
+    
+    .navlink {
+        margin: 1em;
+    }
+    input#hamburg {
+        display: none;
+    }
+    
+    #hamburg {
+        scale: 0.4;
+    }
+    label.hamburg {
+        display: block;
+        background: #ffffff00;
+        width: 75px;
+        height: 50px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 4px;
+        scale: 0.6;
+    }
+    .line:nth-child(1) {
+        top: 12px;
+    }
+    .line {
+        position: absolute;
+        left: 10px;
+        height: 4px;
+        width: 55px;
+        background: #2f2e2e;
+        border-radius: 2px;
+        display: block;
+        transition: 0.5s;
+        transform-origin: center;
+    }
+    .line:nth-child(2) {
+        top: 24px;
+    }
+    .line:nth-child(3) {
+        top: 36px;
+    }
+    .label {
+        scale: .9;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: #394a56;
+        display: flex;
+        flex-direction: row;
+    }
+    .toggle {
+        scale: 0.75;
+        position: absolute;
+        align-items: 20px;
+        nav-right: calc(100% - 20px);
+        align-self: flex-end;
+        margin-left: 5em;
+        isolation: isolate;
+        position: relative;
+        height: 30px;
+        width: 60px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: -8px -4px 8px 0px #535151, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #7c7a7a inset;
+    }
+    .toggle-state {
+        display: none;
+    }
+    .indicator {
+        height: 100%;
+        width: 200%;
+        background: #ecf0f3;
+        border-radius: 15px;
+        transform: translate3d(-75%, 0, 0);
+        transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    #hamburg:checked + .hamburg .line:nth-child(1){
+      transform: translateY(12px) rotate(-45deg);
+    }
+    
+    #hamburg:checked + .hamburg .line:nth-child(2){
+      opacity:0;
+    }
+    
+    #hamburg:checked + .hamburg .line:nth-child(3){
+      transform: translateY(-12px) rotate(45deg);
+    }
+    .navlog{
+        width: 250px;
+    }
+    a.navlink:hover {
+    color: black;
+}
+    .texto{
+      position:absolute;
+      top:120px;
+      left:100px;
+    }
+    nav#nav:hover {
+    box-shadow: 5px 6px #bcbebf39;
+}
+p.x {
+    rotate: 270deg;
+    margin-top: 50px;
+    margin-right: 50px;
+    position: relative;
+    top: 110px;
+    left: -90px;
+    font-family: inherit;
+    font-size: .8em;
+}
+figcapture:hover{
+  opacity: 1;
+    transition: opacity 0.5s ease-in 0.6s;
+}
+.toggle-state:checked ~ .indicator {
+    transform: translate3d(25%, 0, 0);
+}
+      </style>
+</head>
+<body>
+  <nav id="nav" class="nav">
+   
+    <img class='navlog' src="../material/sdkomp3.svg" alt="">
+    <img class="sozial" src="../aaa_slider/assets/img/facebook.png" alt="" />
+    <img class="sozial" src="../aaa_slider/assets/img/instagram.png" alt="" />
+    
+    
+    <a class="navlink" href="../card/card.html">Kollektions</a>
+    <a class="navlink" href="../aktuelles/index.html">Aktuell</a>
+    <a class="navlink" href="../kontaktform/kontaktform.html">Kontakt</a>
+    <a class="navlink" href="../bbb_grid/foliodot.html">Werkstatt</a>
+    <a class="navlink" href="">Wissenswertes</a>
+    <a class="navlink" href="../adressen/adressen.html">Händler</a>
+
+    <div class="row">
+      <input type="checkbox" id="hamburg" />
+      <label for="hamburg" class="hamburg">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </label>
+    </div>
+    <label class="label">
+      <div class="toggle">
+        <input class="toggle-state" type="checkbox" name="check" value="check" />
+        <div class="indicator"></div>
+      </div>
+      <div class="label-text">de</div>
+    </label>
+  </nav>
+  <p class="texto" ><h1 style="position: absolute; top:90px; z-index: 999; font-size: 1.7em;">Kollektions</h1></p>
+    <div class="grid animation" style="position: absolute; top:150px;">
+     
+
+     <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_d_light-schueller_design.png" alt="Mountains"></a>
+        <a href="../ringslider/index1.html"><figcaption><p>day light<p></figcaption></a>
+    </figure>  <figure>
+     <img src="../assets\img\kollekt\ringe-kollektion_fairy_tale-schueller_design.png" alt="Mountains">
+     <a href="../ringslider/index.html"> <figcaption><p>fairy tale</p></figcaption></a>
+    </figure>  <figure>
+      <img src="../assets\img\kollekt\ringe-kollektion_feenring-schueller_design.png" alt="Mountains">
+      <a href="../ringslider/index1.html"> <figcaption><p>feenring</p></figcaption></a>
+    </figure>  <figure>
+       <img src="../assets\img\kollekt\ringe-kollektion_gerollt-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index.html"> <figcaption><p>gerollty</p></figcaption></a>
+    </figure> 
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_helin-schueller_design-1.png" alt="Mountains">
+        <a href="../ringslider/index1.html">  <figcaption>helin</figcaption></a>
+    </figure> 
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_jolie-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index.html">  <figcaption>jolie</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_joy-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index1.html"> <figcaption>joy</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_luna-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index.html"> <figcaption>luna</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_marvel-schueller_design-1.png" alt="Mountains">
+        <a href="../ringslider/index1.html"> <figcaption>marvel</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_nofretete-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index.html"> <figcaption>nofretete</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_rosenrot-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index1.html">  <figcaption>rosenrot</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_sign-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index.html"><figcaption>sign</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_timbre-schueller_design-1.png" alt="Mountains">
+        <a href="../ringslider/index.html"> <figcaption>timbre</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_trace-schueller_design.png" alt="Mountains">
+        <a href="../ringslider/index.html">  <figcaption>trace</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_traumgewebe-schueller_design.png" alt="">
+        <a href="../ringslider/index.html"> <figcaption>traumgewebe</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\ringe-kollektion_belle_de_nuit-schueller_design1.png" alt="">
+        <a href="../ringslider/index.html"> <figcaption>belle_de_nuit</figcaption></a>
+    </figure>   
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_venus-schueller_design.png">
+        <a href="../ringslider/index.html">  <figcaption>venus</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_wilde_wellen-schueller_design-1.png">
+        <a href="../ringslider/index.html"> <figcaption>wilde wellen</figcaption></a>
+    </figure>  
+    <figure>
+        <img src="../assets\img\kollekt\ringe-kollektion_wuerfelsolitaer-schueller_design-1.png" alt="">
+        <a href="../ringslider/index.html">  <figcaption>wüerfelsolitaer</figcaption></a>
+    </figure>  
+    <figure>
+      <img src="../assets\img\kollekt\ringe-kollektion_belle_de_nuit-schueller_design.png" alt="Mountains">
+      <a href="../ringslider/index.html"> <figcaption>belle_de_nuit</figcaption></a>
+  </figure><figure>
+      <img src="../assets\img\kollekt\ringe-kollektion_butterfly-schueller_design.png" alt="Mountains">
+      <a href="../ringslider/index.html">  <figcaption>butterfly</figcaption></a>
+  </figure>
+		</div>
+    <script src="script.js"></script>
+</body>
+</html>
